@@ -3,6 +3,7 @@ package com.swinguis;
 
 import java.awt.CheckboxGroup;
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
@@ -17,18 +18,23 @@ import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
+import javax.swing.JTextArea;
+import javax.swing.ListSelectionModel;
 
 class MyControls extends JFrame
 {
+	JTextArea txtAddress;
 	JCheckBox chbMovie,chbReading,chbSwimming;
 	JRadioButton chbMale,chbFemale,chbOther;
 	ButtonGroup btnGrp;
 	ButtonGroup btnGender;
 	JComboBox<String> cities;
+	JList courses;
+	String citynames[]= {"Chandigarh","Ludhiana","Kharar","Jalandhar"};
+	String courseNames[]= {"C","C++","Java","Python","Android","Swift"};
 	JLabel lbl;
 	JButton btn;
 	JPanel panel;
-	
 	
 	public MyControls()
 	{
@@ -91,14 +97,18 @@ class MyControls extends JFrame
 		btnGender.add(chbOther);
 		add(chbOther);
 		
-		cities = new JComboBox<>();
-		
-		cities.addItem("Chandigarh");
-		cities.addItem("Jalandhar");
-		cities.addItem("Ludhiana");
-		cities.addItem("Kharar");
-		
+		cities = new JComboBox<>(citynames);
 		add(cities);		
+		
+		courses = new JList<>(courseNames);
+		courses.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		add(courses);
+		
+
+		txtAddress = new JTextArea(5, 20);
+		txtAddress.setLineWrap(true);
+		txtAddress.setAutoscrolls(true);
+		add(txtAddress);
 		
 		setLocationRelativeTo(null);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);

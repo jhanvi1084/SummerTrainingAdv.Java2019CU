@@ -1,10 +1,11 @@
-package com.listeners;
+package com.advcontrols;
 
 public class Test {
 
 	public static void main(String[] args)
 	{
-		new KeyListenerDemo();
+		new JMenus();
+
 	}
 
 }
